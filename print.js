@@ -41,7 +41,7 @@ async function connectPrinter() {
   if (devices.length === 0) {
     try {
       // Get permission from the user to use their printer
-      device = await navigator.usb.requestDevice();
+      device = await navigator.usb.requestDevice({ filters: []});
       //      device = await navigator.usb.requestDevice({ filters: [{ vendorId: VENDOR_ID }]});
     }
     catch (e) {
