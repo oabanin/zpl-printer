@@ -36,12 +36,14 @@ function hideConnectButton() {
 async function connectPrinter() {
   // Check if we have devices available
   let devices = await navigator.usb.getDevices();
+  console.log(devices,'devices');
   device = devices[0];
   label = document.getElementById('label');
   if (devices.length === 0) {
     try {
       // Get permission from the user to use their printer
-      device = await navigator.usb.requestDevice({ filters: []});
+               await navigator.usb.requestDevice({ filters: [] });
+      //device = await navigator.usb.requestDevice({ filters: []});
       //      device = await navigator.usb.requestDevice({ filters: [{ vendorId: VENDOR_ID }]});
     }
     catch (e) {
