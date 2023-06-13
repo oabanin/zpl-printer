@@ -1,5 +1,5 @@
 // Zebra vendor id (could be others)
-const VENDOR_ID = 2655;
+//const VENDOR_ID = 2655;
 
 let device;
 let label;
@@ -41,7 +41,8 @@ async function connectPrinter() {
   if (devices.length === 0) {
     try {
       // Get permission from the user to use their printer
-      device = await navigator.usb.requestDevice({ filters: [{ vendorId: VENDOR_ID }]});
+      device = await navigator.usb.requestDevice();
+      //      device = await navigator.usb.requestDevice({ filters: [{ vendorId: VENDOR_ID }]});
     }
     catch (e) {
       label.innerText = 'Please give permission to get the USB printer...';
